@@ -94,6 +94,11 @@ export default function CartSheet() {
                                             <h3 className="font-semibold text-foreground mb-1">
                                                 {item.product.name}
                                             </h3>
+                                            {item.selectedColor && (
+                                                <p className="text-sm text-foreground/60 mb-1">
+                                                    Color: {item.selectedColor}
+                                                </p>
+                                            )}
                                             <p className="text-primary font-bold mb-2">
                                                 {formatPrice(item.product.price)}
                                             </p>
@@ -101,20 +106,20 @@ export default function CartSheet() {
                                             {/* Quantity Controls */}
                                             <div className="flex items-center gap-2">
                                                 <button
-                                                    onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
+                                                    onClick={() => updateQuantity(item.product.id, item.quantity - 1, item.selectedColor)}
                                                     className="px-2 py-1 border border-primary/20 rounded hover:bg-primary/10 transition-colors"
                                                 >
                                                     −
                                                 </button>
                                                 <span className="px-3 font-semibold">{item.quantity}</span>
                                                 <button
-                                                    onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
+                                                    onClick={() => updateQuantity(item.product.id, item.quantity + 1, item.selectedColor)}
                                                     className="px-2 py-1 border border-primary/20 rounded hover:bg-primary/10 transition-colors"
                                                 >
                                                     +
                                                 </button>
                                                 <button
-                                                    onClick={() => removeFromCart(item.product.id)}
+                                                    onClick={() => removeFromCart(item.product.id, item.selectedColor)}
                                                     className="ml-auto text-red-500 hover:text-red-700 text-sm font-semibold"
                                                 >
                                                     Remove

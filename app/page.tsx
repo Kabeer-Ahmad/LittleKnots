@@ -4,6 +4,7 @@ import HeroSlider from "./components/HeroSlider";
 import CategorySection from "./components/CategorySection";
 import AboutPreview from "./components/AboutPreview";
 import ContactSection from "./components/ContactSection";
+import LatestCreationsSlider from "./components/LatestCreationsSlider";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -30,13 +31,8 @@ export default function Home() {
         {/* About Preview Section */}
         <AboutPreview />
 
-        {/* Placeholder Content Section */}
-        <section className="py-24 bg-white">
-          <div className="max-w-7xl mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold text-primary-dark mb-4">Our Latest Creations</h2>
-            <p className="text-foreground/70">More content coming soon...</p>
-          </div>
-        </section>
+        {/* Latest Creations Slider */}
+        <LatestCreationsSlider />
 
         {/* Contact Section */}
         <ContactSection />
