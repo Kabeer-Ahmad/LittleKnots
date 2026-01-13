@@ -125,13 +125,20 @@ export default function AddToCartButton({ product }: { product: Product }) {
                 onClick={handleAddToCart}
                 disabled={!product.inStock}
                 className={`w-full px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 ${added
-                    ? 'bg-green-600 text-white'
+                    ? 'bg-primary text-white'
                     : product.inStock
                         ? 'bg-primary text-white hover:bg-primary-dark'
                         : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     }`}
             >
-                {added ? '✓ Added to Cart!' : product.inStock ? 'Add to Cart' : 'Out of Stock'}
+                {added ? (
+                    <span className="flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        Added to Cart!
+                    </span>
+                ) : product.inStock ? 'Add to Cart' : 'Out of Stock'}
             </button>
         </div>
     );

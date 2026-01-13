@@ -99,6 +99,11 @@ export default function CartSheet() {
                                                     Color: {item.selectedColor}
                                                 </p>
                                             )}
+                                            {item.product.description && item.product.id.startsWith('bouquet-custom') && (
+                                                <p className="text-xs text-foreground/60 mb-2 line-clamp-3">
+                                                    {item.product.description}
+                                                </p>
+                                            )}
                                             <p className="text-primary font-bold mb-2">
                                                 {formatPrice(item.product.price)}
                                             </p>

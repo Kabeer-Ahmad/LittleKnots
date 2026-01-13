@@ -3,7 +3,7 @@ import Footer from "@/app/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { getProductById, getCategoryBySlug, formatPrice, getProductsByCategory } from "@/app/constants/products";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import AddToCartButton from "@/app/components/AddToCartButton";
 import ProductImageCarousel from "@/app/components/ProductImageCarousel";
 import RelatedProductsSlider from "@/app/components/RelatedProductsSlider";
@@ -19,6 +19,11 @@ export default async function ProductDetailPage({
 
     if (!product || !category || product.category !== categorySlug) {
         notFound();
+    }
+
+    // Redirect custom bouquet to builder page
+    if (product.isCustom && product.id === "bouquet-custom") {
+        redirect("/products/bouquets/custom-bouquet");
     }
 
     return (
@@ -58,15 +63,37 @@ export default async function ProductDetailPage({
                                 </h1>
 
                                 <div className="mb-6">
-                                    <span className="text-3xl font-bold text-primary">
-                                        {formatPrice(product.price)}
-                                    </span>
+                                    <div className="flex items-center gap-3">
+                                        <span className="text-3xl font-bold text-primary">
+                                            {formatPrice(product.price)}
+                                        </span>
+                                        <span className="text-xl text-foreground/50 line-through">
+                                            {formatPrice(product.originalPrice)}
+                                        </span>
+                                    </div>
                                 </div>
 
                                 {product.description && (
                                     <p className="text-lg text-foreground/70 mb-8 leading-relaxed">
                                         {product.description}
                                     </p>
+                                )}
+
+                                {/* Flowers Included - For Bouquets */}
+                                {product.flowersIncluded && (
+                                    <div className="bg-gradient-to-r from-primary/5 to-accent/10 border-2 border-primary/20 rounded-2xl p-6 mb-8">
+                                        <div className="flex items-center gap-2 mb-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
+                                                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+                                                <path d="M8 12h8"></path>
+                                                <path d="M12 12v9"></path>
+                                            </svg>
+                                            <h3 className="text-xl font-bold text-primary">Flowers Included</h3>
+                                        </div>
+                                        <p className="text-base text-foreground/80 leading-relaxed">
+                                            {product.flowersIncluded}
+                                        </p>
+                                    </div>
                                 )}
 
                                 <AddToCartButton product={product} />

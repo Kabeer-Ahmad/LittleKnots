@@ -39,6 +39,10 @@ export default function Navbar() {
                             Products
                         </Link>
 
+                        <Link href="/products/bouquets/custom-bouquet" className="text-foreground/80 hover:text-primary font-medium transition-colors">
+                            Custom Bouquet
+                        </Link>
+
                         <Link href="/about" className="text-foreground/80 hover:text-primary font-medium transition-colors">
                             About
                         </Link>

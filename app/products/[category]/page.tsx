@@ -57,9 +57,14 @@ export default async function ProductsPage({ params }: { params: Promise<{ categ
                                             <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
                                                 {product.name}
                                             </h3>
-                                            <p className="mt-2 text-xl font-bold text-primary">
-                                                {formatPrice(product.price)}
-                                            </p>
+                                            <div className="flex items-center gap-2">
+                                                <p className="text-xl font-bold text-primary">
+                                                    {formatPrice(product.price)}
+                                                </p>
+                                                <p className="text-sm text-foreground/50 line-through">
+                                                    {formatPrice(product.originalPrice)}
+                                                </p>
+                                            </div>
                                             {product.description && (
                                                 <p className="mt-2 text-sm text-foreground/60 line-clamp-2">
                                                     {product.description}

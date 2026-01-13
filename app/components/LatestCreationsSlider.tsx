@@ -82,9 +82,14 @@ export default function LatestCreationsSlider() {
                                         <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-1">
                                             {product.name}
                                         </h3>
-                                        <p className="mt-2 text-xl font-bold text-primary">
-                                            {formatPrice(product.price)}
-                                        </p>
+                                        <div className="flex items-center gap-2">
+                                            <p className="text-xl font-bold text-primary">
+                                                {formatPrice(product.price)}
+                                            </p>
+                                            <p className="text-sm text-foreground/50 line-through">
+                                                {formatPrice(product.originalPrice)}
+                                            </p>
+                                        </div>
                                     </div>
                                 </Link>
                             ))}
