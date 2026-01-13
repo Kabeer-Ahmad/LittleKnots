@@ -38,7 +38,7 @@ export default function CategoriesPage() {
                             {CATEGORIES.map((category) => (
                                 <Link
                                     key={category.slug}
-                                    href={`#`}
+                                    href={`/products/${category.slug}`}
                                     className="group block"
                                 >
                                     <div className="relative aspect-square overflow-hidden rounded-2xl bg-gray-100 shadow-md transition-all duration-300 group-hover:shadow-xl border border-primary/10 group-hover:border-primary/30">

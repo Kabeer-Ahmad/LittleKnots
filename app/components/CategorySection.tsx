@@ -105,7 +105,7 @@ export default function CategorySection() {
                                     key={category.slug}
                                     className="flex-[0_0_50%] sm:flex-[0_0_33.33%] md:flex-[0_0_25%] min-w-0 pl-4"
                                 >
-                                    <Link href={`#`} className="group block h-full">
+                                    <Link href={`/products/${category.slug}`} className="group block h-full">
                                         <div className="relative aspect-square overflow-hidden rounded-2xl bg-gray-100 shadow-sm transition-all duration-300 group-hover:shadow-md border border-primary/10">
                                             {/* Category Image */}
                                             <Image

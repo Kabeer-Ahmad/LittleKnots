@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import CartSheet from "./CartSheet";
 
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,6 +35,10 @@ export default function Navbar() {
                             Categories
                         </Link>
 
+                        <Link href="/products" className="text-foreground/80 hover:text-primary font-medium transition-colors">
+                            Products
+                        </Link>
+
                         <Link href="/about" className="text-foreground/80 hover:text-primary font-medium transition-colors">
                             About
                         </Link>
@@ -41,27 +46,33 @@ export default function Navbar() {
                         <Link href="/#contact" className="text-foreground/80 hover:text-primary font-medium transition-colors">
                             Contact
                         </Link>
+
+                        <CartSheet />
                     </div>
 
-                    {/* Mobile Menu Button */}
-                    <button
-                        className="md:hidden p-2 text-foreground/80 hover:text-primary transition-colors relative z-50"
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        aria-label="Toggle menu"
-                    >
-                        {mobileMenuOpen ? (
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                        ) : (
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <line x1="3" y1="12" x2="21" y2="12"></line>
-                                <line x1="3" y1="6" x2="21" y2="6"></line>
-                                <line x1="3" y1="18" x2="21" y2="18"></line>
-                            </svg>
-                        )}
-                    </button>
+                    {/* Mobile: Cart Icon and Menu Button */}
+                    <div className="md:hidden flex items-center gap-2">
+                        <CartSheet />
+
+                        <button
+                            className="p-2 text-foreground/80 hover:text-primary transition-colors relative z-50"
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            aria-label="Toggle menu"
+                        >
+                            {mobileMenuOpen ? (
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            ) : (
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                                </svg>
+                            )}
+                        </button>
+                    </div>
                 </div>
 
                 {/* Mobile Menu - Enhanced with animations */}
@@ -96,6 +107,20 @@ export default function Navbar() {
                                     <rect x="3" y="14" width="7" height="7"></rect>
                                 </svg>
                                 Categories
+                            </span>
+                        </Link>
+                        <Link
+                            href="/products"
+                            className="block px-4 py-3 text-foreground/80 hover:bg-primary/10 hover:text-primary rounded-lg transition-all transform hover:translate-x-1 font-medium"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            <span className="flex items-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                </svg>
+                                Products
                             </span>
                         </Link>
                         <Link
