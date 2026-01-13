@@ -100,7 +100,7 @@ export default function CartSheet() {
                                                 </p>
                                             )}
                                             {item.product.description && item.product.id.startsWith('bouquet-custom') && (
-                                                <p className="text-xs text-foreground/60 mb-2 line-clamp-3">
+                                                <p className="text-xs text-foreground/60 mb-2">
                                                     {item.product.description}
                                                 </p>
                                             )}

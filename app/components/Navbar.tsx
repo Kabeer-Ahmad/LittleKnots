@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import CartSheet from "./CartSheet";
+import SearchBar from "./SearchBar";
 
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -51,11 +52,13 @@ export default function Navbar() {
                             Contact
                         </Link>
 
+                        <SearchBar />
                         <CartSheet />
                     </div>
 
                     {/* Mobile: Cart Icon and Menu Button */}
                     <div className="md:hidden flex items-center gap-2">
+                        <SearchBar />
                         <CartSheet />
 
                         <button

@@ -4,6 +4,7 @@ import { Product } from "../constants/products";
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
 
+
 // Color mapping for visual display
 const COLOR_MAP: { [key: string]: string } = {
     // Pinks
