@@ -1,7 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Footer() {
+    const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
+
     return (
         <footer className="bg-white border-t border-primary/20 pt-16 pb-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,10 +37,10 @@ export default function Footer() {
                             <div className="flex flex-col items-center space-y-4">
                                 <h3 className="font-bold text-lg text-primary-dark">Quick Links</h3>
                                 <div className="flex flex-col space-y-2 text-center">
-                                    <Link href="#" className="text-foreground/80 hover:text-primary transition-colors">Shop</Link>
-                                    <Link href="#" className="text-foreground/80 hover:text-primary transition-colors">About Us</Link>
-                                    <Link href="#" className="text-foreground/80 hover:text-primary transition-colors">Contact</Link>
-                                    <Link href="#" className="text-foreground/80 hover:text-primary transition-colors">Privacy Policy</Link>
+                                    <Link href="/track-order" className="text-foreground/80 hover:text-primary transition-colors">Track Order</Link>
+                                    <Link href="/about" className="text-foreground/80 hover:text-primary transition-colors">About Us</Link>
+                                    <Link href="/admin" className="text-foreground/80 hover:text-primary transition-colors">Admin</Link>
+                                    <button onClick={() => setShowPrivacyPolicy(true)} className="text-foreground/80 hover:text-primary transition-colors text-left">Privacy Policy</button>
                                 </div>
                             </div>
 
@@ -77,10 +82,10 @@ export default function Footer() {
                         <div className="flex flex-col items-start space-y-4">
                             <h3 className="font-bold text-lg text-primary-dark">Quick Links</h3>
                             <div className="flex flex-col space-y-2 text-left">
-                                <Link href="#" className="text-foreground/80 hover:text-primary transition-colors">Shop</Link>
-                                <Link href="#" className="text-foreground/80 hover:text-primary transition-colors">About Us</Link>
-                                <Link href="#" className="text-foreground/80 hover:text-primary transition-colors">Contact</Link>
-                                <Link href="#" className="text-foreground/80 hover:text-primary transition-colors">Privacy Policy</Link>
+                                <Link href="/track-order" className="text-foreground/80 hover:text-primary transition-colors">Track Order</Link>
+                                <Link href="/about" className="text-foreground/80 hover:text-primary transition-colors">About Us</Link>
+                                <Link href="/admin" className="text-foreground/80 hover:text-primary transition-colors">Admin</Link>
+                                <button onClick={() => setShowPrivacyPolicy(true)} className="text-foreground/80 hover:text-primary transition-colors text-left">Privacy Policy</button>
                             </div>
                         </div>
 
@@ -103,6 +108,62 @@ export default function Footer() {
                     &copy; {new Date().getFullYear()} Little Knots. All rights reserved.
                 </div>
             </div>
+
+            {/* Privacy Policy Modal */}
+            {showPrivacyPolicy && (
+                <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShowPrivacyPolicy(false)}>
+                    <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+                        <div className="p-6">
+                            <div className="flex justify-between items-start mb-4">
+                                <h2 className="text-2xl font-bold text-primary-dark">Privacy Policy</h2>
+                                <button
+                                    onClick={() => setShowPrivacyPolicy(false)}
+                                    className="text-gray-400 hover:text-gray-600"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div className="space-y-4 text-foreground/80">
+                                <div>
+                                    <h3 className="font-semibold text-foreground mb-2">Information Collection</h3>
+                                    <p className="text-sm">We collect information you provide directly to us when placing orders, including your name, email address, phone number, and delivery address. This information is used solely to process and fulfill your orders.</p>
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-foreground mb-2">How We Use Your Information</h3>
+                                    <p className="text-sm">Your information is used to:
+                                        <br />• Process and deliver your orders
+                                        <br />• Communicate with you about your orders
+                                        <br />• Improve our products and services
+                                        <br />• Send you updates about new products (only with your consent)
+                                    </p>
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-foreground mb-2">Data Security</h3>
+                                    <p className="text-sm">We implement appropriate security measures to protect your personal information. Your data is stored securely and is only accessible to authorized personnel.</p>
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-foreground mb-2">Third-Party Sharing</h3>
+                                    <p className="text-sm">We do not sell, trade, or otherwise transfer your personal information to third parties. Your information may only be shared with delivery partners for order fulfillment purposes.</p>
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-foreground mb-2">Your Rights</h3>
+                                    <p className="text-sm">You have the right to access, correct, or delete your personal information at any time. Contact us via WhatsApp or Instagram to exercise these rights.</p>
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-foreground mb-2">Contact Us</h3>
+                                    <p className="text-sm">If you have any questions about this Privacy Policy, please contact us through WhatsApp or Instagram.</p>
+                                </div>
+                                <div className="pt-4 border-t border-primary/10">
+                                    <p className="text-xs text-foreground/60">Last updated: January 2026</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </footer>
     );
 }

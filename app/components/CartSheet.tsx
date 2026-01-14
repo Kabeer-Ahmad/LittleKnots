@@ -147,14 +147,14 @@ export default function CartSheet() {
                                 </span>
                             </div>
                             <Link
-                                href="/#contact"
+                                href="/checkout"
                                 onClick={toggleCart}
                                 className="block w-full px-8 py-4 rounded-full bg-primary text-white font-bold text-lg text-center hover:bg-primary-dark transition-colors shadow-lg hover:shadow-xl"
                             >
                                 Proceed to Checkout
                             </Link>
                             <p className="text-xs text-center text-foreground/60">
-                                Click checkout to contact us and complete your order
+                                Complete your purchase on the checkout page
                             </p>
                         </div>
                     )}

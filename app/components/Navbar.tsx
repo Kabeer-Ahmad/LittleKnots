@@ -48,8 +48,8 @@ export default function Navbar() {
                             About
                         </Link>
 
-                        <Link href="/#contact" className="text-foreground/80 hover:text-primary font-medium transition-colors">
-                            Contact
+                        <Link href="/track-order" className="text-foreground/80 hover:text-primary font-medium transition-colors">
+                            Track Order
                         </Link>
 
                         <SearchBar />
@@ -131,6 +131,21 @@ export default function Navbar() {
                             </span>
                         </Link>
                         <Link
+                            href="/products/bouquets/custom-bouquet"
+                            className="block px-4 py-3 text-foreground/80 hover:bg-primary/10 hover:text-primary rounded-lg transition-all transform hover:translate-x-1 font-medium"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            <span className="flex items-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+                                    <path d="M8 12H5a3 3 0 0 0 0 6h3"></path>
+                                    <path d="M16 12h3a3 3 0 0 1 0 6h-3"></path>
+                                    <path d="M12 12v10"></path>
+                                </svg>
+                                Custom Bouquet
+                            </span>
+                        </Link>
+                        <Link
                             href="/about"
                             className="block px-4 py-3 text-foreground/80 hover:bg-primary/10 hover:text-primary rounded-lg transition-all transform hover:translate-x-1 font-medium"
                             onClick={() => setMobileMenuOpen(false)}
@@ -145,7 +160,7 @@ export default function Navbar() {
                             </span>
                         </Link>
                         <Link
-                            href="/#contact"
+                            href="/track-order"
                             className="block px-4 py-3 text-foreground/80 hover:bg-primary/10 hover:text-primary rounded-lg transition-all transform hover:translate-x-1 font-medium"
                             onClick={() => setMobileMenuOpen(false)}
                         >
@@ -153,7 +168,7 @@ export default function Navbar() {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                                 </svg>
-                                Contact
+                                Track Order
                             </span>
                         </Link>
                     </div>
