@@ -12,6 +12,7 @@ interface Order {
     customer_name: string;
     customer_email: string;
     customer_phone: string;
+    customer_city: string;
     customer_address: string;
     order_items: any[];
     total_amount: number;
@@ -97,6 +98,7 @@ export default function AdminPage() {
                     customer_name: editingOrder.customer_name,
                     customer_email: editingOrder.customer_email,
                     customer_phone: editingOrder.customer_phone,
+                    customer_city: editingOrder.customer_city,
                     customer_address: editingOrder.customer_address,
                     status: editingOrder.status,
                     admin_notes: editingOrder.admin_notes
@@ -644,6 +646,16 @@ export default function AdminPage() {
                                             />
                                         </div>
                                         <div>
+                                            <label className="block text-sm font-semibold mb-2">City</label>
+                                            <input
+                                                type="text"
+                                                value={editingOrder.customer_city}
+                                                onChange={(e) => setEditingOrder({ ...editingOrder, customer_city: e.target.value })}
+                                                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                                                placeholder="City name"
+                                            />
+                                        </div>
+                                        <div>
                                             <label className="block text-sm font-semibold mb-2">Status</label>
                                             <select
                                                 value={editingOrder.status}
@@ -704,6 +716,7 @@ export default function AdminPage() {
                                                 <p><span className="font-medium text-gray-600">Name:</span> {selectedOrder.customer_name}</p>
                                                 <p><span className="font-medium text-gray-600">Email:</span> {selectedOrder.customer_email}</p>
                                                 <p><span className="font-medium text-gray-600">Phone:</span> {selectedOrder.customer_phone}</p>
+                                                <p><span className="font-medium text-gray-600">City:</span> {selectedOrder.customer_city}</p>
                                                 <p><span className="font-medium text-gray-600">Address:</span> {selectedOrder.customer_address}</p>
                                             </div>
                                         </div>

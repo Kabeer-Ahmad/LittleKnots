@@ -11,6 +11,7 @@ interface Order {
     customer_name: string;
     customer_email: string;
     customer_phone: string;
+    customer_city: string;
     customer_address: string;
     order_items: any[];
     total_amount: number;
@@ -119,8 +120,8 @@ export default function TrackOrderPage() {
                                         setError("");
                                     }}
                                     className={`px-4 sm:px-6 py-2 rounded-lg font-semibold transition-all ${searchType === "orderId"
-                                            ? 'bg-primary text-white shadow-lg'
-                                            : 'bg-gray-100 text-foreground hover:bg-gray-200'
+                                        ? 'bg-primary text-white shadow-lg'
+                                        : 'bg-gray-100 text-foreground hover:bg-gray-200'
                                         }`}
                                 >
                                     Order ID
@@ -133,8 +134,8 @@ export default function TrackOrderPage() {
                                         setError("");
                                     }}
                                     className={`px-4 sm:px-6 py-2 rounded-lg font-semibold transition-all ${searchType === "email"
-                                            ? 'bg-primary text-white shadow-lg'
-                                            : 'bg-gray-100 text-foreground hover:bg-gray-200'
+                                        ? 'bg-primary text-white shadow-lg'
+                                        : 'bg-gray-100 text-foreground hover:bg-gray-200'
                                         }`}
                                 >
                                     Email Address
@@ -213,7 +214,7 @@ export default function TrackOrderPage() {
                                                         return (
                                                             <div key={step} className="flex flex-col items-center flex-1">
                                                                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${isCancelled ? 'bg-red-100 text-red-600' :
-                                                                        isCompleted ? 'bg-primary text-white' : 'bg-gray-200 text-gray-500'
+                                                                    isCompleted ? 'bg-primary text-white' : 'bg-gray-200 text-gray-500'
                                                                     }`}>
                                                                     {isCompleted ? '✓' : index + 1}
                                                                 </div>
@@ -243,6 +244,7 @@ export default function TrackOrderPage() {
                                                     <p><span className="text-gray-600">Name:</span> {order.customer_name}</p>
                                                     <p><span className="text-gray-600">Email:</span> {order.customer_email}</p>
                                                     <p><span className="text-gray-600">Phone:</span> {order.customer_phone}</p>
+                                                    <p><span className="text-gray-600">City:</span> {order.customer_city}</p>
                                                 </div>
                                             </div>
                                             <div className="bg-gray-50 p-4 rounded-lg">

@@ -17,6 +17,7 @@ export default function CheckoutPage() {
         name: "",
         email: "",
         phone: "",
+        city: "",
         address: "",
         notes: "",
         paymentMethod: "cod" // cod or advance
@@ -48,6 +49,8 @@ export default function CheckoutPage() {
                 newErrors.phone = "Please enter the complete number (11 digits total)";
             }
         }
+
+        if (!formData.city.trim()) newErrors.city = "City is required";
 
         if (!formData.address.trim()) newErrors.address = "Address is required";
 
@@ -94,6 +97,7 @@ export default function CheckoutPage() {
                         customer_name: formData.name,
                         customer_email: formData.email,
                         customer_phone: formData.phone,
+                        customer_city: formData.city,
                         customer_address: formData.address,
                         order_items: orderItems,
                         total_amount: totalAmount,
@@ -188,7 +192,7 @@ export default function CheckoutPage() {
                                             onChange={handleInputChange}
                                             className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${errors.name ? 'border-red-500' : 'border-primary/20'
                                                 }`}
-                                            placeholder="John Doe"
+                                            placeholder="Full Name"
                                         />
                                         {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                                     </div>
@@ -225,6 +229,23 @@ export default function CheckoutPage() {
                                             placeholder="+92-300-1234567"
                                         />
                                         {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+                                    </div>
+
+                                    <div>
+                                        <label htmlFor="city" className="block text-sm font-semibold text-foreground mb-2">
+                                            City *
+                                        </label>
+                                        <input
+                                            type="text"
+                                            id="city"
+                                            name="city"
+                                            value={formData.city}
+                                            onChange={handleInputChange}
+                                            className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${errors.city ? 'border-red-500' : 'border-primary/20'
+                                                }`}
+                                            placeholder="Karachi, Lahore, Islamabad, etc."
+                                        />
+                                        {errors.city && <p className="text-red-500 text-sm mt-1">{errors.city}</p>}
                                     </div>
 
                                     <div>
