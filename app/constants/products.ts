@@ -150,6 +150,17 @@ export const PRODUCTS: Product[] = [
         flowersIncluded: "1x Sunflower, 1x Lily, 2x Daisy, 2x Tulips, 6x Mini Daisy, 2x Leaf Stems",
         inStock: true,
     },
+    {
+        id: "bouquet-love-in-bloom",
+        name: "Love in Bloom Bouquet",
+        category: "bouquets",
+        price: 6500,
+        originalPrice: 8600,
+        images: ["/Products/Bouquets/Love_In_BLoom.png"],
+        description: "Skip the florist line this year and give a gift that lasts a lifetime. Our \"Love in Bloom\" bouquet is affectionately handmade, stitch by stitch, to create the perfect Valentine's surprise. It's not just a bouquet; it's a hug they can hold.",
+        flowersIncluded: "3x Roses, 2x Lilies, 3x Lavender, bunch of Baby's Breath, 3x Green Leaves stems",
+        inStock: true,
+    },
 
     // Coasters Category
     {
